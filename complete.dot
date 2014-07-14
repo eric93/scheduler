@@ -1,0 +1,96 @@
+
+digraph G {
+     ranksep=2;
+     subgraph cluster_0 {
+         label = "Root";
+         subgraph {
+             rank=same;
+             Root_child_a[label="child.a"];
+             Root_child_b[label="child.b"];
+             Root_child_c[label="child.c"];
+             Root_child_d[label="child.d"];
+         }
+
+         Root_child_b -> Root_child_a;
+         Root_child_a -> Root_child_c;
+         Root_child_d;
+     }
+
+     subgraph cluster_1 {
+         label="MidNode";
+         subgraph {
+             rank=same;
+             Midnode_a[label="a"];
+             Midnode_b[label="b"];
+             Midnode_c[label="c"];
+             Midnode_d[label="d"];
+         }
+
+         subgraph{
+             rank=same;
+             Midnode_child1_a[label="child1.a"];
+             Midnode_child1_b[label="child1.b"];
+             Midnode_child1_c[label="child1.c"];
+             Midnode_child1_d[label="child1.d"];
+
+             Midnode_child2_a[label="child2.a"];
+             Midnode_child2_b[label="child2.b"];
+             Midnode_child2_c[label="child2.c"];
+             Midnode_child2_d[label="child2.d"];
+         }
+
+         Midnode_a -> Midnode_child1_a;
+         Midnode_a -> Midnode_child2_a;
+
+         Midnode_child1_b -> Midnode_b;
+         Midnode_child2_b -> Midnode_b;
+
+         Midnode_c -> Midnode_child1_c;
+         Midnode_child1_d -> Midnode_child2_c;
+         Midnode_child2_d -> Midnode_d;
+     }
+
+     subgraph cluster_2 {
+         label = "Leaf";
+         subgraph {
+             rank=same;
+             Leaf_a[label="a"];
+             Leaf_b[label="b"];
+             Leaf_c[label="c"];
+             Leaf_d[label="d"];
+         }
+
+         Leaf_a;
+         Leaf_b;
+         Leaf_c -> Leaf_d;
+     }
+
+     Root_child_a -> Midnode_a[style="dashed"];
+     Root_child_a -> Leaf_a[style="dashed"];
+     Root_child_c -> Midnode_c[style="dashed"];
+     Root_child_c -> Leaf_c[style="dashed"];
+     Leaf_b -> Root_child_b[style="dotted",constraint=false];
+     Midnode_b -> Root_child_b[style="dotted",constraint=false];
+     Leaf_d -> Root_child_d[style="dotted",constraint=false];
+     Midnode_d -> Root_child_d[style="dotted",constraint=false];
+
+     Midnode_child1_a -> Midnode_a[style="dashed",constraint=false];
+     Midnode_child1_a -> Leaf_a[style="dashed"];
+     Midnode_child2_a -> Midnode_a[style="dashed",constraint=false];
+     Midnode_child2_a -> Leaf_a[style="dashed"];
+
+     Midnode_b -> Midnode_child1_b[style="dotted",constraint=false];
+     Midnode_b -> Midnode_child2_b[style="dotted",constraint=false];
+     Leaf_b -> Midnode_child1_b[style="dotted",constraint=false];
+     Leaf_b -> Midnode_child2_b[style="dotted",constraint=false];
+
+     Midnode_child1_c -> Midnode_c[style="dashed",constraint=false];
+     Midnode_child2_c -> Midnode_c[style="dashed",constraint=false];
+     Midnode_child1_c -> Leaf_c[style="dashed"];
+     Midnode_child2_c -> Leaf_c[style="dashed"];
+
+     Midnode_d -> Midnode_child1_d[style="dotted",constraint=false];
+     Midnode_d -> Midnode_child2_d[style="dotted",constraint=false];
+     Leaf_d -> Midnode_child1_d[style="dotted",constraint=false];
+     Leaf_d -> Midnode_child2_d[style="dotted",constraint=false];
+}

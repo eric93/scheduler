@@ -1,0 +1,14 @@
+digraph cluster_2 {
+    label = "Leaf";
+    subgraph {
+        rank=same;
+        Leaf_a[label="a"];
+        Leaf_b[label="b"];
+        Leaf_c[label="c"];
+        Leaf_d[label="d"];
+    }
+
+    Leaf_a;
+    Leaf_b;
+    Leaf_c -> Leaf_d;
+}

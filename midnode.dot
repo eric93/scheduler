@@ -1,0 +1,33 @@
+digraph cluster_1 {
+    label="MidNode";
+    subgraph {
+        rank=same;
+        Midnode_a[label="a"];
+        Midnode_b[label="b"];
+        Midnode_c[label="c"];
+        Midnode_d[label="d"];
+    }
+
+    subgraph{
+        rank=same;
+        Midnode_child1_a[label="child1.a"];
+        Midnode_child1_b[label="child1.b"];
+        Midnode_child1_c[label="child1.c"];
+        Midnode_child1_d[label="child1.d"];
+
+        Midnode_child2_a[label="child2.a"];
+        Midnode_child2_b[label="child2.b"];
+        Midnode_child2_c[label="child2.c"];
+        Midnode_child2_d[label="child2.d"];
+    }
+
+    Midnode_a -> Midnode_child1_a;
+    Midnode_a -> Midnode_child2_a;
+
+    Midnode_child1_b -> Midnode_b;
+    Midnode_child2_b -> Midnode_b;
+
+    Midnode_c -> Midnode_child1_c;
+    Midnode_child1_d -> Midnode_child2_c;
+    Midnode_child2_d -> Midnode_d;
+}

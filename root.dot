@@ -1,0 +1,14 @@
+digraph cluster_0 {
+    label = "Root";
+    subgraph {
+        rank=same;
+        Root_child_a[label="child.a"];
+        Root_child_b[label="child.b"];
+        Root_child_c[label="child.c"];
+        Root_child_d[label="child.d"];
+    }
+
+    Root_child_b -> Root_child_a;
+    Root_child_a -> Root_child_c;
+    Root_child_d;
+}
