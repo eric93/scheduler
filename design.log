@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.7.10)  14 JUL 2014 10:50
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.7.10)  21 JUL 2014 14:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -252,16 +252,6 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 \myScoreStart1=\dimen127
 \myCenter1=\dimen128
 \myScoreEnd1=\dimen129
-
-Overfull \hbox (35.75114pt too wide) in paragraph at lines 98--101
- [] 
- []
-
-
-Overfull \hbox (26.77893pt too wide) in paragraph at lines 111--114
- [] 
- []
-
 \myBox2=\box38
 \myScoreStart2=\dimen130
 \myCenter2=\dimen131
@@ -271,12 +261,12 @@ Overfull \hbox (26.77893pt too wide) in paragraph at lines 111--114
 \myCenter3=\dimen134
 \myScoreEnd3=\dimen135
 
-Overfull \hbox (71.96786pt too wide) in paragraph at lines 136--140
+Overfull \hbox (1.76366pt too wide) in paragraph at lines 180--184
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 59.62753pt on input line 157.
+LaTeX Warning: Float too large for page by 93.71338pt on input line 201.
 
 [3] [4] [5] [6 <./root.pdf> <./midnode.pdf
 
@@ -294,7 +284,7 @@ th page group included in a single page
 Here is how much of TeX's memory you used:
  2954 strings out of 493308
  41680 string characters out of 6143616
- 133968 words of memory out of 5000000
+ 134968 words of memory out of 5000000
  6392 multiletter control sequences out of 15000+600000
  8241 words of font info for 29 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -306,15 +296,16 @@ ist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.
-pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/shar
-e/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on design.pdf (7 pages, 206945 bytes).
+mf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.p
+fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fon
+ts/type1/urw/times/utmr8a.pfb>
+Output written on design.pdf (7 pages, 221458 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
- 76 compressed objects within 1 object stream
+ 112 PDF objects out of 1000 (max. 8388607)
+ 79 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

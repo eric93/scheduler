@@ -80,102 +80,64 @@
     In general, we can assume that dependencies originating from outside the current traversal are always computable; we can presumably satisfy these by scheduling other traversals before the current one. For non-local dependencies within the current traversal, computability depends on which type of traversal we are considering. Below, we consider computability rules for two traversal types.
 
     \begin{itemize}
-        \item \textbf{Bottom Up} Assume that any synthesized dependencies are satisfied. If all verticies are computable from this alone (i.e. they have all dependencies satisfied), the traversal is bottom up.
-        \item \textbf{Inorder} For a given class introduce a \emph{visit clause} for each one of its children. A \emph{visit clause} depends on all inherited dependencies to that child, and any synthesized dependencies from the child are satisfied iff the child's \emph{visit clause} is. Assuming all inherited dependencies are satisfied, if all vertices are computable, the traversal is inorder.
+        \item \textbf{Bottom Up} Assume that any synthesized dependencies are satisfied. If all verticies have their dependencies satisfied
     \end{itemize}
 
-    These conditions provide natural implementation strategies for each type of traversal. For example, with bottom-up traversals, once all of a node's children have been visited, any synthesized dependencies to the parent must have been satisfied, so we can immediately visit the parent and compute all of its attributes.
-
-    For inorder traversals, once we compute a child's inherited dependencies, we can visit that child and compute all of its attributes. This will satisfy any synthesized dependencies, allowing the parent to continue its visit.
-
-    Figure~\ref{fig:logic} lays out explicit logical rules for verifying a traversal is a particular type using only the dependency graph.
     \begin{figure}
-        \scriptsize
         \begin{prooftree}
-            \AxiomC{$\forall e=(v_1,v_2) \in E, e $ is t-valid}
+            \AxiomC{$v \in V \wedge v \not \in V_T$}
+            \UnaryInfC{$v$ is t-computable}
+        \end{prooftree}
+        \begin{prooftree}
+            \AxiomC{$\forall (v_1,v_2) \in E, ((v_1,v_2) \in E_T \Rightarrow (v_1,v_2) $ is local $) $ and  $(v_1$ is t-computable$)$}
             \UnaryInfC{$v_2$ is t-computable}
-        \end{prooftree}
-        \begin{prooftree}
-            \AxiomC{$e \not \in E_T$}
-            \UnaryInfC{$e$ is t-valid}
-        \end{prooftree}
-        \begin{prooftree}
-            \AxiomC{$e=(v_1,v_2) \in E_T$}
-            \AxiomC{$e$ is local}
-            \AxiomC{$v_1$ is t-computable}
-            \TrinaryInfC{$e$ is t-valid}
         \end{prooftree}
         \begin{prooftree}
             \AxiomC{$\forall v \in V_T, v$ is t-computable}
             \UnaryInfC{$T$ is trivial}
         \end{prooftree}
 
-
         \begin{prooftree}
-            \AxiomC{$\forall e=(v_1,v_2) \in E, e $ is td-valid}
+            \AxiomC{$v \in V \wedge v \not \in V_T$}
+            \UnaryInfC{$v$ is td-computable}
+        \end{prooftree}
+        \begin{prooftree}
+            \AxiomC{$\forall (v_1,v_2) \in E, ((v_1,v_2) \in E_T \Rightarrow (v_1,v_2) $ is not synthesized $) $ and  $(v_1$ is td-computable$)$}
             \UnaryInfC{$v_2$ is td-computable}
-        \end{prooftree}
-        \begin{prooftree}
-            \AxiomC{$e \not \in E_T$}
-            \UnaryInfC{$e$ is td-valid}
-        \end{prooftree}
-        \begin{prooftree}
-            \AxiomC{$e \in E_T$}
-            \AxiomC{$e$ is inherited}
-            \BinaryInfC{$e$ is td-valid}
-        \end{prooftree}
-        \begin{prooftree}
-            \AxiomC{$e=(v_1,v_2) \in E_T$}
-            \AxiomC{$e$ is local}
-            \AxiomC{$v_1$ is td-computable}
-            \TrinaryInfC{$e$ is td-valid}
         \end{prooftree}
         \begin{prooftree}
             \AxiomC{$\forall v \in V_T, v$ is td-computable}
             \UnaryInfC{$T$ is top down}
         \end{prooftree}
 
-
         \begin{prooftree}
-            \AxiomC{$\forall e=(v_1,v_2) \in E, e $ is bu-valid}
+            \AxiomC{$v \in V \wedge v \not \in V_T$}
+            \UnaryInfC{$v$ is bu-computable}
+        \end{prooftree}
+        \begin{prooftree}
+            \AxiomC{$\forall (v_1,v_2) \in E, ((v_1,v_2) \in E_T \Rightarrow (v_1,v_2) $ is not inherited $) $ and  $(v_1$ is bu-computable$)$}
             \UnaryInfC{$v_2$ is bu-computable}
-        \end{prooftree}
-        \begin{prooftree}
-            \AxiomC{$e \not \in E_T$}
-            \UnaryInfC{$e$ is bu-valid}
-        \end{prooftree}
-        \begin{prooftree}
-            \AxiomC{$e \in E_T$}
-            \AxiomC{$e$ is synthesized}
-            \BinaryInfC{$e$ is bu-valid}
-        \end{prooftree}
-        \begin{prooftree}
-            \AxiomC{$e=(v_1,v_2) \in E_T$}
-            \AxiomC{$e$ is local}
-            \AxiomC{$v_1$ is bu-computable}
-            \TrinaryInfC{$e$ is bu-valid}
         \end{prooftree}
         \begin{prooftree}
             \AxiomC{$\forall v \in V_T, v$ is bu-computable}
             \UnaryInfC{$T$ is bottom up}
         \end{prooftree}
 
-
         \begin{prooftree}
             \AxiomC{$e \in E$}
             \AxiomC{$e \not \in E_T$}
-            \BinaryInfC{$e$ is io-valid}
+            \BinaryInfC{$e$ is valid}
         \end{prooftree}
         \begin{prooftree}
             \AxiomC{$e \in E_T$}
             \AxiomC{$e$ is inherited}
-            \BinaryInfC{$e$ is io-valid}
+            \BinaryInfC{$e$ is valid}
         \end{prooftree}
         \begin{prooftree}
             \AxiomC{$e = (v_1,v_2) \in E_T$}
             \AxiomC{$e$ is local}
             \AxiomC{$v_1$ is io-computable}
-            \TrinaryInfC{$e$ is io-valid}
+            \TrinaryInfC{$e$ is valid}
         \end{prooftree}
         \begin{prooftree}
             \AxiomC{$\forall (v_1,v_2) \in \{ e=(v_a, v_b) | v_a.class = c_1 \wedge v_b.class = c_2 \wedge e$ is inherited$ \}$}
@@ -186,10 +148,10 @@
             \AxiomC{$e = (v_1,v_2) \in E_T$}
             \AxiomC{$e$ is synthesized}
             \AxiomC{$visit(v_1.class,v_2.class)$}
-            \TrinaryInfC{$e$ is io-valid}
+            \TrinaryInfC{$e$ is valid}
         \end{prooftree}
         \begin{prooftree}
-            \AxiomC{$\forall (v_1,v_2) \in E, (v_1,v_2) $ is io-valid}
+            \AxiomC{$\forall (v_1,v_2) \in E, (v_1,v_2) $ is valid}
             \UnaryInfC{$v_2$ is io-computable}
         \end{prooftree}
         \begin{prooftree}
