@@ -64,7 +64,7 @@ To be a traversal, a subgraph $T = (V_T, E_T)$ must satisfy two conditions:
 The self contained property provides much insight into the space of possible traversal schedules. Note that for any two different verticies $v_1,v_2 \in S$, where $S$ is a strongly connected component of $G$, $v_2$ is on a path from $v_1$ to itself. This means that $v_1$ and $v_2$, or more generally all of $S$, must be on the same traversal. 
 
 This suggests a novel way of discovering all possible traversal schedules. First, find all of the strongly connected components and assign them to traversals. These components now must form a DAG that is a valid \emph{traversal schedule}. We can construct other schedules by combining connected components together. While not always possible, in some cases we can continue this until the entire schedule is one big traversal. Hence the number of possible schedules is
-$O(2^{|E_C|})$, where $E_C$ is the set of edges between the strongly connected components of $G$.
+$O(B_n)$, where $n$ is the number strongly connected components of $G$ and $B_i$ is the $i$th Bell number.
 
 \subsection{Traversal Types}
 We are interested in four different types of traversals, which each move around the tree in a different manner:
@@ -75,12 +75,12 @@ We are interested in four different types of traversals, which each move around 
     \item \textbf{Inorder} On an inorder traversal, each child node is visited as part of some intermediate step of the parent visit. The parent can perform an arbitrary amount of computation before or after the visit, but each child is required to be visited exactly once.
 \end{itemize}
 
-To be traversable, we must be able to show that all nodes can be visited in one of these orders. This amounts to providing a proof that all vertices on the current traversal can be "computed". Usually, a vertex can be computed if all vertices it locally depends on can also be computed, but there are some special cases.
+To be traversable, we must be able to show that all nodes can be visited in one of these orders. This amounts to providing a proof that all vertices on a given traversal can be ``computed''. Usually, a vertex can be computed if all vertices it locally depends on can also be computed, but there are some special cases.
 
 In general, we can assume that dependencies originating from outside the current traversal are always computable; we can presumably satisfy these by scheduling other traversals before the current one. For non-local dependencies within the current traversal, computability depends on which type of traversal we are considering. Below, we consider computability rules for two traversal types.
 
 \begin{itemize}
-    \item \textbf{Bottom Up} Assume that any synthesized dependencies are satisfied. If all verticies are computable from this alone (i.e. they have all dependencies satisfied), the traversal is bottom up.
+    \item \textbf{Bottom Up} Assume that any synthesized dependencies are satisfied. If all verticies are computable from this alone (i.e. they have all transitive dependencies satisfied), the traversal is bottom up.
     \item \textbf{Inorder} For a given class introduce a \emph{visit clause} for each one of its children. A \emph{visit clause} depends on all inherited dependencies to that child, and any synthesized dependencies from the child are satisfied iff the child's \emph{visit clause} is. Assuming all inherited dependencies are satisfied, if all vertices are computable, the traversal is inorder.
 \end{itemize}
 
@@ -208,7 +208,7 @@ Figures~\ref{fig:logic1} and~\ref{fig:logic2} lay out explicit logical rules for
 \subsection{Merging Traversals}
 In some cases, two traversals can be merged into one. This is almost always neccessary after assigning traversals to strongly connected components because we wind up with the largest number of traversals possible, which is likely unsuitable for realistic implementations.
 
-We define the merge of two traversals as follows: Let $T_1 = (V_1, E_1)$ and $T_2 = (V_2, E_2)$ be traversals. Their merge $T' = T_1 + T_2$ is such that $V_{T'} = V_1 \cup V_2$ and $E_{T'} = E_1 \cup E_2 \cup E_C$, where $E_C$ is the set of all edges across the cut between $T_1$ and $T_2$.
+We define the merge of two traversals as follows: Let $T_1 = (V_1, E_1)$ and $T_2 = (V_2, E_2)$ be traversals. Their merge $T' = T_1 \oplus T_2$ is such that $V_{T'} = V_1 \cup V_2$ and $E_{T'} = E_1 \cup E_2 \cup E_C$, where $E_C$ is the set of all edges across the cut between $T_1$ and $T_2$.
 
 However, a merge is not always well defined. It only makes sense if the input traversals have specific types. Some of these type constraints are summarized below. These can be verified with the rules in Figures~\ref{fig:logic1} and~\ref{fig:logic2}, though the proofs are ommitted here.
 \begin{itemize}
