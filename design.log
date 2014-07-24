@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.7.10)  21 JUL 2014 14:14
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Arch Linux) (format=pdflatex 2014.7.10)  24 JUL 2014 15:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -261,12 +261,9 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 \myCenter3=\dimen134
 \myScoreEnd3=\dimen135
 
-Overfull \hbox (1.76366pt too wide) in paragraph at lines 180--184
+Overfull \hbox (1.76366pt too wide) in paragraph at lines 185--189
  [] 
  []
-
-
-LaTeX Warning: Float too large for page by 93.71338pt on input line 201.
 
 [3] [4] [5] [6 <./root.pdf> <./midnode.pdf
 
@@ -280,32 +277,32 @@ age group included in a single page
 
 pdfTeX warning: pdflatex (file ./complete.pdf): PDF inclusion: multiple pdfs wi
 th page group included in a single page
->] [7] (./design.aux) ) 
+>] [7] [8] (./design.aux) ) 
 Here is how much of TeX's memory you used:
- 2954 strings out of 493308
- 41680 string characters out of 6143616
- 134968 words of memory out of 5000000
- 6392 multiletter control sequences out of 15000+600000
+ 2955 strings out of 493308
+ 41693 string characters out of 6143616
+ 134976 words of memory out of 5000000
+ 6393 multiletter control sequences out of 15000+600000
  8241 words of font info for 29 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 37i,6n,32p,534b,1165s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-bx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr
-/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.p
-fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fon
-ts/type1/urw/times/utmr8a.pfb>
-Output written on design.pdf (7 pages, 221458 bytes).
+ 37i,6n,32p,530b,1165s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
+/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.
+pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist
+/fonts/type1/urw/times/utmr8a.pfb>
+Output written on design.pdf (8 pages, 222825 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
- 79 compressed objects within 1 object stream
+ 115 PDF objects out of 1000 (max. 8388607)
+ 81 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
