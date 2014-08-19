@@ -156,9 +156,11 @@ def decode(model, trav, visit, visitors):
             travmax = travcur
 
     traversals = [dict() for i in range(travmax+1)]
+    nonempty = [False for i in range(travmax+1)]
 
     for n in nodes.keys():
         t = model.evaluate(trav(nodes[n])).as_long()
+        nonempty[t] = True
         print 't:',t
         (cls,child,attr) = n
         if not traversals[t].has_key(cls):
@@ -173,6 +175,9 @@ def decode(model, trav, visit, visitors):
 
     for vis in visitors.keys():
         for i in range(len(traversals)):
+            if not nonempty[i]:
+                continue
+
             (cls,child) = vis
             if not traversals[i].has_key(cls):
                 traversals[i][cls] = []
